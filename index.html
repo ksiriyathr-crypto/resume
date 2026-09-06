@@ -8,25 +8,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#EBEDE6;
-    --panel:#E1E4DA;
-    --ink:#1C232B;
-    --ink-soft:#4B5560;
-    --copper:#C1743A;
-    --copper-dim:#C1743A55;
-    --steel:#4E6B72;
-    --line:#C6CBBC;
-    --ok:#5E7C56;
-    --white:#F7F8F4;
-    --radius:2px;
+    --bg:#12161A;
+    --bg-2:#171C21;
+    --panel:#1B2127;
+    --panel-2:#20272E;
+    --ink:#EDEFEA;
+    --ink-soft:#9AA5A8;
+    --ink-faint:#5D666A;
+    --copper:#E2954F;
+    --copper-glow:#E2954F33;
+    --cyan:#5FC9C7;
+    --cyan-glow:#5FC9C733;
+    --line:#2B3339;
+    --line-soft:#232A2F;
+    --ok:#7FBF6A;
+    --white:#242B32;
+    --radius:7px;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
     background:
-      linear-gradient(var(--line) 1px, transparent 1px) 0 0/40px 40px,
-      linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0/40px 40px,
-      var(--paper);
+      radial-gradient(circle at 1px 1px, var(--line-soft) 1px, transparent 1px) 0 0/34px 34px,
+      var(--bg);
     background-attachment:fixed;
     color:var(--ink);
     font-family:'IBM Plex Sans', sans-serif;
@@ -70,30 +74,35 @@
 
   .id-card{
     border:1px solid var(--line);
-    background:var(--panel);
+    background:linear-gradient(180deg, var(--panel-2), var(--panel));
+    border-radius:var(--radius);
     padding:20px;
     position:relative;
+    box-shadow:0 1px 0 #ffffff08 inset, 0 12px 24px -16px #00000080;
   }
   .id-card::before{
     content:"";
     position:absolute;
-    top:10px; left:10px; right:10px; bottom:10px;
+    top:9px; left:9px; right:9px; bottom:9px;
     border:1px dashed var(--line);
+    border-radius:4px;
     pointer-events:none;
   }
   .id-photo-wrap{
     width:96px; height:96px;
     border-radius:50%;
     overflow:hidden;
-    border:2px solid var(--ink);
+    border:2px solid var(--copper);
+    box-shadow:0 0 0 4px var(--copper-glow);
     margin:0 auto 16px;
     position:relative;
   }
-  .id-photo-wrap img{width:100%; height:100%; object-fit:cover; display:block;}
+  .id-photo-wrap img{width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(15%) contrast(1.05);}
   .id-name{
     text-align:center;
     font-size:1.15rem;
     line-height:1.25;
+    color:var(--ink);
   }
   .id-role{
     text-align:center;
@@ -112,7 +121,7 @@
     gap:6px;
   }
   .id-readout .row{display:flex; justify-content:space-between; gap:10px;}
-  .id-readout .k{color:var(--ink-soft);}
+  .id-readout .k{color:var(--ink-faint);}
   .id-readout .v{color:var(--ink); text-align:right;}
   .status-dot{
     display:inline-block;
@@ -120,7 +129,7 @@
     border-radius:50%;
     background:var(--ok);
     margin-right:6px;
-    box-shadow:0 0 0 3px #5e7c5622;
+    box-shadow:0 0 0 3px #7fbf6a2a, 0 0 8px #7fbf6a99;
   }
 
   nav.tabs{
@@ -135,6 +144,7 @@
     align-items:center;
     gap:10px;
     padding:11px 12px;
+    border-radius:5px;
     font-family:'IBM Plex Sans', sans-serif;
     font-size:0.92rem;
     color:var(--ink-soft);
@@ -145,18 +155,19 @@
     width:7px; height:7px;
     background:var(--line);
     flex:none;
+    border-radius:1px;
     transition:background .15s ease, box-shadow .15s ease;
   }
-  nav.tabs button:hover{color:var(--ink); background:#ffffff40;}
+  nav.tabs button:hover{color:var(--ink); background:var(--panel);}
   nav.tabs button.active{
     color:var(--ink);
     border-left-color:var(--copper);
-    background:#ffffff55;
+    background:var(--panel);
     font-weight:500;
   }
   nav.tabs button.active .sw{
     background:var(--copper);
-    box-shadow:0 0 0 3px var(--copper-dim);
+    box-shadow:0 0 0 3px var(--copper-glow), 0 0 6px var(--copper);
   }
 
   .rail-foot{
@@ -199,18 +210,39 @@
   }
   .panel-head .num{
     font-size:0.72rem;
-    color:var(--ink-soft);
+    color:var(--ink-faint);
   }
   .panel-head h2{font-size:1.6rem;}
 
   /* ---- profile panel ---- */
+  .hero-wrap{position:relative; padding-top:6px;}
+  .hero-wave{
+    position:absolute;
+    top:-8px; left:0;
+    width:100%; max-width:520px;
+    height:64px;
+    opacity:0.55;
+    pointer-events:none;
+  }
+  .hero-wave path{
+    fill:none;
+    stroke:var(--cyan);
+    stroke-width:1.4;
+    stroke-linecap:round;
+    stroke-dasharray:6 5;
+    animation:dash 3.6s linear infinite;
+  }
+  @keyframes dash{ to{ stroke-dashoffset:-220; } }
+
   .hero-title{
+    position:relative;
     font-size:clamp(2.2rem, 5vw, 3.4rem);
-    line-height:1.05;
-    max-width:12ch;
+    line-height:1.08;
+    max-width:13ch;
+    color:var(--ink);
   }
   .hero-sub{
-    margin-top:14px;
+    margin-top:16px;
     font-size:1.02rem;
     color:var(--ink-soft);
     max-width:56ch;
@@ -221,12 +253,12 @@
     max-width:66ch;
     line-height:1.75;
     font-size:0.98rem;
+    color:#C7CDC7;
   }
 
   .block-title{
     font-size:0.78rem;
-    text-transform:none;
-    color:var(--ink-soft);
+    color:var(--ink-faint);
     margin:40px 0 14px;
     display:flex;
     align-items:center;
@@ -240,15 +272,16 @@
   }
 
   .edu-item{margin-bottom:16px;}
-  .edu-item h3{font-size:1rem;}
+  .edu-item h3{font-size:1rem; color:var(--ink);}
   .edu-item .meta{font-size:0.82rem; color:var(--ink-soft); margin-top:3px;}
 
   .tags{display:flex; flex-wrap:wrap; gap:8px;}
   .tag{
     border:1px solid var(--line);
+    border-radius:5px;
     padding:6px 12px;
     font-size:0.78rem;
-    background:var(--white);
+    background:var(--panel);
     color:var(--ink-soft);
   }
 
@@ -265,17 +298,19 @@
     position:absolute;
     left:-26px; top:4px;
     width:9px; height:9px;
-    background:var(--paper);
+    border-radius:2px;
+    background:var(--bg);
     border:2px solid var(--copper);
+    box-shadow:0 0 8px var(--copper-glow);
   }
-  .tl-item.past::before{border-color:var(--steel);}
-  .tl-date{font-size:0.74rem; color:var(--ink-soft); display:block; margin-bottom:4px;}
-  .tl-item h3{font-size:1.05rem;}
-  .tl-item .org{font-size:0.85rem; color:var(--steel); margin-top:2px; margin-bottom:10px;}
-  .tl-item ul{margin:0; padding-left:18px; line-height:1.7; font-size:0.92rem; color:var(--ink);}
+  .tl-item.past::before{border-color:var(--cyan); box-shadow:0 0 8px var(--cyan-glow);}
+  .tl-date{font-size:0.74rem; color:var(--ink-faint); display:block; margin-bottom:4px;}
+  .tl-item h3{font-size:1.05rem; color:var(--ink);}
+  .tl-item .org{font-size:0.85rem; color:var(--cyan); margin-top:2px; margin-bottom:10px;}
+  .tl-item ul{margin:0; padding-left:18px; line-height:1.7; font-size:0.92rem; color:#C7CDC7;}
   .tl-item ul li{margin-bottom:4px;}
-  .sub-block{margin-top:16px; padding:16px 18px; background:var(--panel); border-left:2px solid var(--line);}
-  .sub-block h4{font-size:0.9rem; font-family:'Space Grotesk',sans-serif; margin-bottom:8px;}
+  .sub-block{margin-top:16px; padding:16px 18px; background:var(--panel); border-left:2px solid var(--copper); border-radius:0 6px 6px 0;}
+  .sub-block h4{font-size:0.9rem; font-family:'Space Grotesk',sans-serif; margin-bottom:8px; color:var(--ink);}
 
   /* ---- systems (projects) panel ---- */
   .sys-grid{
@@ -284,32 +319,36 @@
     gap:1px;
     background:var(--line);
     border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
   }
   @media (max-width:640px){.sys-grid{grid-template-columns:1fr;}}
   .sys-card{
     all:unset;
     cursor:pointer;
-    background:var(--white);
+    background:var(--panel);
     padding:22px 22px 20px;
     display:flex;
     flex-direction:column;
     gap:10px;
     min-height:150px;
+    transition:background .15s ease;
   }
-  .sys-card:hover{background:#ffffff;}
+  .sys-card:hover{background:var(--panel-2);}
   .sys-card:hover .sys-title{color:var(--copper);}
   .sys-top{display:flex; align-items:center; justify-content:space-between;}
-  .sys-id{font-size:0.7rem; color:var(--ink-soft);}
-  .sys-light{width:7px; height:7px; border-radius:50%; background:var(--ok);}
-  .sys-light.dev{background:var(--copper);}
-  .sys-title{font-size:1.08rem; font-family:'Space Grotesk',sans-serif; transition:color .15s ease;}
+  .sys-id{font-size:0.7rem; color:var(--ink-faint);}
+  .sys-light{width:7px; height:7px; border-radius:50%; background:var(--ok); box-shadow:0 0 6px var(--ok);}
+  .sys-light.dev{background:var(--copper); box-shadow:0 0 6px var(--copper);}
+  .sys-title{font-size:1.08rem; font-family:'Space Grotesk',sans-serif; color:var(--ink); transition:color .15s ease;}
   .sys-desc{font-size:0.85rem; color:var(--ink-soft); line-height:1.55;}
-  .sys-open{font-size:0.74rem; color:var(--steel); margin-top:auto; padding-top:6px;}
+  .sys-open{font-size:0.74rem; color:var(--cyan); margin-top:auto; padding-top:6px;}
 
   /* ---- modal ---- */
   .overlay{
     position:fixed; inset:0;
-    background:#1c232bcc;
+    background:#0A0D0FBF;
+    backdrop-filter:blur(3px);
     display:none;
     align-items:center;
     justify-content:center;
@@ -319,14 +358,16 @@
   .overlay.open{display:flex; animation:fade .18s ease;}
   @keyframes fade{from{opacity:0;} to{opacity:1;}}
   .modal{
-    background:var(--paper);
-    border:1px solid var(--ink);
+    background:linear-gradient(180deg, var(--panel-2), var(--panel));
+    border:1px solid var(--line);
+    border-radius:10px;
     max-width:560px;
     width:100%;
     max-height:86vh;
     overflow-y:auto;
     padding:30px 32px 28px;
     position:relative;
+    box-shadow:0 24px 60px -20px #000000B0;
   }
   .modal-close{
     all:unset;
@@ -334,24 +375,27 @@
     position:absolute;
     top:18px; right:18px;
     width:26px; height:26px;
+    border-radius:5px;
     display:flex; align-items:center; justify-content:center;
     border:1px solid var(--line);
     font-size:0.9rem;
     color:var(--ink-soft);
   }
   .modal-close:hover{border-color:var(--copper); color:var(--copper);}
-  .modal-eyebrow{font-size:0.72rem; color:var(--ink-soft); margin-bottom:10px;}
-  .modal h3{font-size:1.4rem; margin-bottom:14px; max-width:22ch;}
+  .modal-eyebrow{font-size:0.72rem; color:var(--ink-faint); margin-bottom:10px;}
+  .modal-eyebrow a{color:var(--cyan); text-decoration:none;}
+  .modal-eyebrow a:hover{color:var(--copper);}
+  .modal h3{font-size:1.4rem; margin-bottom:14px; max-width:22ch; color:var(--ink);}
   .modal .tags{margin-bottom:18px;}
-  .modal ul{padding-left:18px; line-height:1.7; font-size:0.94rem;}
+  .modal ul{padding-left:18px; line-height:1.7; font-size:0.94rem; color:#C7CDC7;}
   .modal ul li{margin-bottom:6px;}
 
   /* ---- contact panel ---- */
-  .contact-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); max-width:520px;}
+  .contact-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; max-width:520px;}
   @media (max-width:520px){.contact-grid{grid-template-columns:1fr;}}
-  .contact-cell{background:var(--white); padding:20px;}
-  .contact-cell .k{font-size:0.72rem; color:var(--ink-soft); margin-bottom:6px;}
-  .contact-cell .v{font-size:0.98rem;}
+  .contact-cell{background:var(--panel); padding:20px;}
+  .contact-cell .k{font-size:0.72rem; color:var(--ink-faint); margin-bottom:6px;}
+  .contact-cell .v{font-size:0.98rem; color:var(--ink);}
   .contact-cell a{text-decoration:none;}
   .contact-cell a:hover{color:var(--copper);}
 </style>
@@ -393,7 +437,12 @@
 
     <!-- PROFILE -->
     <section class="panel active" id="panel-profile">
-      <h1 class="hero-title">Building the systems that run quietly in the background.</h1>
+      <div class="hero-wrap">
+        <svg class="hero-wave" viewBox="0 0 520 64" preserveAspectRatio="none">
+          <path d="M0,32 L60,32 L75,12 L95,52 L115,32 L180,32 L195,20 L215,44 L235,32 L520,32" />
+        </svg>
+        <h1 class="hero-title">Building the systems that run quietly in the background.</h1>
+      </div>
       <p class="hero-sub">Computer engineering graduate working across software, hardware and networked systems — from water-utility control hardware to the internal tools and robotics that keep a factory floor moving.</p>
 
       <p class="bio">Computer Engineering graduate with hands-on experience across software development, hardware integration and data analysis. Comfortable in Python, PHP, HTML/CSS and MySQL, and equally at home wiring up an Arduino or troubleshooting a network printer. Has led small technical projects end to end — from designing a control system to presenting the data it produces — and works well across both IT support and applied engineering.</p>
@@ -498,17 +547,17 @@
           <span class="sys-open">View details</span>
         </button>
 
-        <button class="sys-card" data-modal="m-log">
-          <div class="sys-top"><span class="sys-id mono">SYS / 03</span><span class="sys-light"></span></div>
-          <div class="sys-title">Log Analysis Dashboard</div>
-          <div class="sys-desc">A data-visualization tool built for a thesis project analyzing university network traffic.</div>
+        <button class="sys-card" data-modal="m-mold">
+          <div class="sys-top"><span class="sys-id mono">SYS / 03</span><span class="sys-light dev"></span></div>
+          <div class="sys-title">Mold Lifecycle Platform</div>
+          <div class="sys-desc">An internal system at IWCT for tracking a mold's full lifecycle, backed by a Google Sheets database.</div>
           <span class="sys-open">View details</span>
         </button>
 
-        <button class="sys-card" data-modal="m-iwct">
+        <button class="sys-card" data-modal="m-repair">
           <div class="sys-top"><span class="sys-id mono">SYS / 04</span><span class="sys-light dev"></span></div>
-          <div class="sys-title">IWCT Internal Operations Site</div>
-          <div class="sys-desc">The internal website used at IWCT for daily operations, including AMR pallet-movement monitoring.</div>
+          <div class="sys-title">Repair Daily Record</div>
+          <div class="sys-desc">A daily repair-log tool for the factory floor, synced live to a Google Sheet with Excel export.</div>
           <span class="sys-open">View details</span>
         </button>
       </div>
@@ -565,28 +614,31 @@
     </ul>
   </div>
 
-  <div class="modal" data-id="m-log">
+  <div class="modal" data-id="m-mold">
     <button class="modal-close" data-close>✕</button>
-    <div class="modal-eyebrow mono">SYS / 03</div>
-    <h3>Log Analysis Dashboard</h3>
-    <div class="tags"><span class="tag">Python</span><span class="tag">Data Visualization</span></div>
+    <div class="modal-eyebrow mono">SYS / 03 · In active use at IWCT</div>
+    <h3>Mold Lifecycle Platform</h3>
+    <div class="tags"><span class="tag">Google Sheets backend</span><span class="tag">ExcelJS</span><span class="tag">JavaScript</span></div>
     <ul>
-      <li>Built for a 2025 thesis analyzing computer network traffic from university internet users.</li>
-      <li>Surfaces usage trends and behaviour patterns, including peak usage times.</li>
-      <li>Presents the findings through graphs and charts for easier interpretation.</li>
+      <li>Tracks a mold's full lifecycle at IWCT: receiving a new mold, modifying its item/model, moving it between storage locations, recording customer asset numbers, starting the EOP (end-of-production) countdown, and scrap or return.</li>
+      <li>Each activity keeps its own history ledger with month/year filtering, so any event type can be reviewed on its own.</li>
+      <li>Records — including embedded mold photos — can be exported straight to a real .xlsx file.</li>
+      <li>Runs on a Google Sheets database through Apps Script, so the factory floor doesn't need a separate server.</li>
     </ul>
+    <p class="modal-eyebrow mono" style="margin-top:18px;"><a href="https://github.com/ksiriyathr-crypto/Moldrecord" target="_blank" rel="noopener">github.com/ksiriyathr-crypto/Moldrecord ↗</a></p>
   </div>
 
-  <div class="modal" data-id="m-iwct">
+  <div class="modal" data-id="m-repair">
     <button class="modal-close" data-close>✕</button>
-    <div class="modal-eyebrow mono">SYS / 04</div>
-    <h3>IWCT Internal Operations Site</h3>
-    <div class="tags"><span class="tag">In active use</span></div>
+    <div class="modal-eyebrow mono">SYS / 04 · In active use at IWCT</div>
+    <h3>Repair Daily Record</h3>
+    <div class="tags"><span class="tag">Google Sheets backend</span><span class="tag">JavaScript</span></div>
     <ul>
-      <li>Internal website used at IWCT Co., Ltd. to support day-to-day company operations.</li>
-      <li>Used alongside the AMR (automated mobile robot) fleet to monitor pallet movement across the floor.</li>
-      <li>Maintained together with the AMR system itself — including navigation maps and general upkeep.</li>
+      <li>A daily repair-log tool for the factory floor, for recording maintenance and repair jobs as they happen.</li>
+      <li>Keeps a searchable history synced live from a connected Google Sheet.</li>
+      <li>Records can be downloaded as an Excel file for reporting.</li>
     </ul>
+    <p class="modal-eyebrow mono" style="margin-top:18px;"><a href="https://ksiriyathr-crypto.github.io/save_job1/" target="_blank" rel="noopener">ksiriyathr-crypto.github.io/save_job1 ↗</a></p>
   </div>
 
 </div>
