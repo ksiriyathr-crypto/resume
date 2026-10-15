@@ -559,7 +559,8 @@
 <aside class="rail">
 <div class="id-card">
 <div class="id-photo-wrap">
-<div style="width:100%;height:100%;background:linear-gradient(135deg,#333,#555);display:flex;align-items:center;justify-content:center;color:#aaa;font-size:0.7rem;">Photo</div>
+<!-- เปลี่ยนชื่อไฟล์ profile.jpg ให้ตรงกับรูปของคุณ (วางไฟล์ไว้โฟลเดอร์เดียวกับ index.html) -->
+<img src="profile.jpg" alt="Siriyathon Kuengsamrong"/>
 </div>
 <div class="id-name" data-en="Siriyathon&lt;br/&gt;Kuengsamrong" data-th="Siriyathon&lt;br/&gt;Kuengsamrong">Siriyathon<br/>Kuengsamrong</div>
 <div class="id-role" data-en="Computer Engineering Graduate&lt;br/&gt;IT Support &amp; Systems Integration" data-th="บัณฑิตวิศวกรรมคอมพิวเตอร์&lt;br/&gt;งานซัพพอร์ตไอทีและระบบ">Computer Engineering Graduate<br/>IT Support &amp; Systems Integration</div>
@@ -908,12 +909,7 @@
     if(e.key === 'Escape') overlay.classList.remove('open');
   });
 
-  /* ---------- language toggle (EN / TH) ----------
-     Every translatable element below has data-en="..." and data-th="..."
-     attributes holding the two versions of its content.
-     Right now data-th is just a copy of the English text as a placeholder —
-     edit the data-th="" value on each element to the Thai translation.
-     Clicking EN/TH swaps every element's content and remembers the choice. */
+  /* ---------- language toggle (EN / TH) ---------- */
   const langBtns = document.querySelectorAll('.lang-btn');
   const i18nEls = document.querySelectorAll('[data-en]');
 
