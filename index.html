@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Siriyathon Kuengsamrong — Computer Engineering</title>
+<title>Siriyathon Kuengsamrong — IT Support & Systems Engineer</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
 <style>
@@ -563,6 +563,539 @@
     .modal{padding:28px 22px 24px;border-radius:15px;}
   }
 
+
+  /* ---------- profile: experience / education / expertise polish ---------- */
+  .block-title{
+    font-size:.76rem;color:var(--ink-soft);font-weight:600;
+    margin:52px 0 18px;gap:14px;
+  }
+  .block-title::before{
+    content:"";width:9px;height:9px;border-radius:3px;flex:none;
+    background:linear-gradient(135deg,var(--cyan),#3aa6ff);
+    box-shadow:0 0 0 4px var(--cyan-glow),0 0 14px var(--cyan-glow);
+    transform:rotate(45deg);
+  }
+  .block-title::after{
+    background:linear-gradient(90deg,rgba(100,216,213,.35),var(--line) 40%,transparent);
+  }
+
+  .work-card,.edu-card{
+    position:relative;overflow:hidden;
+    padding:22px 24px 22px 26px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.08);
+    background:
+      radial-gradient(120% 140% at 100% 0%,rgba(100,216,213,.07),transparent 55%),
+      linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,.012));
+    box-shadow:0 14px 34px -22px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.04);
+  }
+  .work-card::before,.edu-card::before{
+    content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;border-radius:0 3px 3px 0;
+    background:linear-gradient(180deg,var(--cyan),rgba(100,216,213,.08));
+    box-shadow:0 0 16px var(--cyan-glow);
+  }
+  .work-card::after,.edu-card::after{
+    content:"";position:absolute;right:20px;top:20px;width:34px;height:34px;
+    opacity:.55;pointer-events:none;background-repeat:no-repeat;background-size:contain;
+  }
+  .work-card::after{
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364D8D5' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='7' width='18' height='13' rx='2.5'/%3E%3Cpath d='M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7'/%3E%3Cpath d='M3 13h18'/%3E%3C/svg%3E");
+  }
+  .edu-card::after{
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364D8D5' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 9l10-5 10 5-10 5z'/%3E%3Cpath d='M6 11.5V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.5'/%3E%3Cpath d='M22 9v6'/%3E%3C/svg%3E");
+  }
+  .work-card:hover,.edu-card:hover{
+    transform:translateY(-3px);
+    border-color:rgba(100,216,213,.28);
+    box-shadow:0 22px 44px -24px rgba(0,0,0,.9),0 0 0 1px rgba(100,216,213,.08);
+  }
+  .work-card h3,.edu-card h3{
+    font-size:1.12rem;font-weight:600;letter-spacing:-.01em;padding-right:52px;line-height:1.35;
+  }
+  .work-card .meta,.edu-card .meta{
+    display:inline-flex;align-items:center;gap:9px;
+    margin-top:12px;padding:6px 13px;
+    font-size:.78rem;line-height:1.5;color:var(--cyan);
+    background:rgba(100,216,213,.07);
+    border:1px solid rgba(100,216,213,.2);
+    border-radius:999px;
+  }
+  .work-card .meta::before{
+    content:"";width:7px;height:7px;border-radius:50%;flex:none;
+    background:var(--ok);box-shadow:0 0 0 0 rgba(126,211,106,.55);
+    animation:pulse-dot 2.2s ease-out infinite;
+  }
+  .edu-card .meta::before{
+    content:"";width:7px;height:7px;border-radius:50%;flex:none;background:var(--cyan);
+  }
+  @keyframes pulse-dot{
+    0%{box-shadow:0 0 0 0 rgba(126,211,106,.5);}
+    80%,100%{box-shadow:0 0 0 8px rgba(126,211,106,0);}
+  }
+
+  .check-list{
+    list-style:none;margin:18px 0 0;padding:16px 0 0;
+    border-top:1px dashed rgba(255,255,255,.1);
+    display:grid;gap:4px;
+  }
+  .check-list li{
+    position:relative;padding:8px 12px 8px 36px;
+    font-size:.92rem;line-height:1.7;color:#C9D0D6;
+    border-radius:10px;transition:background .18s ease,color .18s ease;
+  }
+  .check-list li::before{
+    content:"";position:absolute;left:10px;top:.78em;width:16px;height:16px;border-radius:50%;
+    background:rgba(100,216,213,.12);
+    border:1px solid rgba(100,216,213,.35);
+  }
+  .check-list li::after{
+    content:"";position:absolute;left:15px;top:calc(.78em + 4px);width:4px;height:7px;
+    border:solid var(--cyan);border-width:0 1.6px 1.6px 0;transform:rotate(45deg);
+  }
+  .check-list li:hover{background:rgba(255,255,255,.035);color:var(--ink);}
+
+  .tags-expertise{gap:10px;}
+  .tags-expertise .tag{
+    --c:var(--cyan);
+    position:relative;display:inline-flex;align-items:center;gap:9px;
+    padding:9px 15px 9px 13px;font-size:.8rem;font-weight:500;
+    color:#D5DBE0;
+    border:1px solid color-mix(in srgb,var(--c) 28%,transparent);
+    background:linear-gradient(180deg,color-mix(in srgb,var(--c) 11%,transparent),color-mix(in srgb,var(--c) 3%,transparent));
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+  }
+  .tags-expertise .tag::before{
+    content:"";width:7px;height:7px;border-radius:50%;flex:none;
+    background:var(--c);box-shadow:0 0 10px var(--c);
+  }
+  .tags-expertise .tag:hover{
+    color:#fff;transform:translateY(-2px);
+    border-color:color-mix(in srgb,var(--c) 70%,transparent);
+    background:linear-gradient(180deg,color-mix(in srgb,var(--c) 22%,transparent),color-mix(in srgb,var(--c) 7%,transparent));
+    box-shadow:0 10px 22px -12px var(--c);
+  }
+  .tags-expertise .t-web{--c:#64D8D5;}
+  .tags-expertise .t-data{--c:#F0A35B;}
+  .tags-expertise .t-infra{--c:#7ED36A;}
+  .tags-expertise .t-lab{--c:#A78BFA;}
+
+  @media (max-width:640px){
+    .work-card,.edu-card{padding:18px 16px 18px 20px;}
+    .work-card::after,.edu-card::after{width:26px;height:26px;right:14px;top:16px;}
+    .work-card h3,.edu-card h3{padding-right:40px;font-size:1.04rem;}
+    .check-list li{padding:7px 6px 7px 34px;font-size:.9rem;}
+    .work-card .meta,.edu-card .meta{border-radius:14px;}
+  }
+
+
+  /* ---------- experience page polish (CSS only, text unchanged) ---------- */
+  #panel-experience .panel-head{border-bottom:none;margin-bottom:38px;padding-bottom:20px;}
+  #panel-experience .panel-head::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;width:auto;height:1px;border-radius:0;
+    background:linear-gradient(90deg,var(--cyan),rgba(100,216,213,.15) 35%,var(--line) 70%,transparent);
+  }
+  #panel-experience .panel-head h2{
+    font-size:2rem;font-weight:700;letter-spacing:-.03em;
+    background:linear-gradient(120deg,#fff 30%,var(--cyan));
+    -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+  }
+  #panel-experience .panel-head .num{
+    padding:5px 13px;border-radius:999px;font-size:.72rem;color:var(--cyan);
+    background:rgba(100,216,213,.08);border:1px solid rgba(100,216,213,.22);
+  }
+
+  #panel-experience .timeline{
+    border-left:none;padding-left:36px;
+  }
+  #panel-experience .timeline::before{
+    content:"";position:absolute;left:0;top:10px;bottom:10px;width:2px;border-radius:2px;
+    background:linear-gradient(180deg,var(--ok),var(--cyan) 22%,rgba(100,216,213,.25) 70%,rgba(100,216,213,0));
+    box-shadow:0 0 14px rgba(100,216,213,.25);
+  }
+
+  #panel-experience .tl-item{
+    position:relative;overflow:visible;
+    padding:24px 26px 22px;margin-bottom:26px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.08);
+    background:
+      radial-gradient(110% 120% at 100% 0%,rgba(100,216,213,.06),transparent 55%),
+      linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,.012));
+    box-shadow:0 18px 40px -26px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.045);
+    transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+    animation:rise .55s cubic-bezier(.2,.75,.2,1) both;
+  }
+  #panel-experience .tl-item:nth-child(2){animation-delay:.08s;}
+  #panel-experience .tl-item:nth-child(3){animation-delay:.16s;}
+  #panel-experience .tl-item:last-child{padding-bottom:22px;margin-bottom:0;}
+  #panel-experience .tl-item:hover{
+    transform:translateY(-3px);
+    border-color:rgba(100,216,213,.3);
+    box-shadow:0 26px 48px -28px rgba(0,0,0,.95),0 0 0 1px rgba(100,216,213,.08);
+  }
+  /* current role: brighter */
+  #panel-experience .tl-item:not(.past){
+    border-color:rgba(126,211,106,.28);
+    background:
+      radial-gradient(110% 130% at 100% 0%,rgba(126,211,106,.09),transparent 55%),
+      linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.014));
+  }
+
+  /* node on the timeline */
+  #panel-experience .tl-item::before{
+    left:-43px;top:26px;width:14px;height:14px;
+    background:var(--bg);border:2px solid var(--cyan);
+    box-shadow:0 0 0 5px var(--cyan-glow),0 0 14px var(--cyan-glow);
+  }
+  #panel-experience .tl-item:not(.past)::before{
+    border-color:var(--ok);background:var(--ok);
+    box-shadow:0 0 0 5px rgba(126,211,106,.2),0 0 16px rgba(126,211,106,.5);
+    animation:exp-pulse 2.4s ease-out infinite;
+  }
+  @keyframes exp-pulse{
+    0%{box-shadow:0 0 0 0 rgba(126,211,106,.55),0 0 16px rgba(126,211,106,.5);}
+    80%,100%{box-shadow:0 0 0 12px rgba(126,211,106,0),0 0 16px rgba(126,211,106,.5);}
+  }
+  /* connector from node to card */
+  #panel-experience .tl-item::after{
+    content:"";position:absolute;left:-30px;top:32px;width:30px;height:1px;
+    background:linear-gradient(90deg,rgba(100,216,213,.55),rgba(100,216,213,0));
+  }
+  #panel-experience .tl-item:not(.past)::after{background:linear-gradient(90deg,rgba(126,211,106,.6),rgba(126,211,106,0));}
+
+  /* date pill */
+  #panel-experience .tl-date{
+    display:inline-flex;align-items:center;gap:8px;
+    margin-bottom:12px;padding:5px 12px 5px 10px;
+    font-size:.74rem;color:var(--cyan);
+    background:rgba(100,216,213,.08);border:1px solid rgba(100,216,213,.22);border-radius:999px;
+  }
+  #panel-experience .tl-date::before{
+    content:"";width:13px;height:13px;flex:none;background:currentColor;
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='16' rx='3'/%3E%3Cpath d='M8 3v4M16 3v4M3 10h18'/%3E%3C/svg%3E") center/contain no-repeat;
+            mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='16' rx='3'/%3E%3Cpath d='M8 3v4M16 3v4M3 10h18'/%3E%3C/svg%3E") center/contain no-repeat;
+  }
+  #panel-experience .tl-item:not(.past) .tl-date{
+    color:var(--ok);background:rgba(126,211,106,.09);border-color:rgba(126,211,106,.3);
+  }
+
+  #panel-experience .tl-item h3{
+    font-size:1.25rem;font-weight:600;letter-spacing:-.015em;line-height:1.35;color:#fff;
+  }
+  #panel-experience .tl-item .org{
+    display:flex;align-items:center;gap:9px;
+    margin:7px 0 0;padding-bottom:16px;font-size:.88rem;color:var(--cyan);
+    border-bottom:1px dashed rgba(255,255,255,.1);
+  }
+  #panel-experience .tl-item .org::before{
+    content:"";width:15px;height:15px;flex:none;background:currentColor;opacity:.85;
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16'/%3E%3Cpath d='M16 10h2a2 2 0 0 1 2 2v9M2 21h20M8 7h4M8 11h4M8 15h4'/%3E%3C/svg%3E") center/contain no-repeat;
+            mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16'/%3E%3Cpath d='M16 10h2a2 2 0 0 1 2 2v9M2 21h20M8 7h4M8 11h4M8 15h4'/%3E%3C/svg%3E") center/contain no-repeat;
+  }
+
+  /* bullet lists */
+  #panel-experience .tl-item ul{
+    list-style:none;margin:14px 0 0;padding:0;display:grid;gap:2px;
+    font-size:.92rem;line-height:1.7;color:#C9D0D6;
+  }
+  #panel-experience .tl-item ul li{
+    position:relative;margin:0;padding:7px 12px 7px 30px;border-radius:10px;
+    transition:background .18s ease,color .18s ease;
+  }
+  #panel-experience .tl-item ul li::before{
+    content:"";position:absolute;left:11px;top:calc(.7em + 7px);width:7px;height:7px;
+    border-radius:2px;transform:rotate(45deg);
+    background:linear-gradient(135deg,var(--cyan),#3aa6ff);
+    box-shadow:0 0 8px var(--cyan-glow);
+  }
+  #panel-experience .tl-item:not(.past) > ul li::before{
+    background:linear-gradient(135deg,var(--ok),var(--cyan));
+  }
+  #panel-experience .tl-item ul li:hover{background:rgba(255,255,255,.04);color:var(--ink);}
+
+  /* cooperative project block */
+  #panel-experience .sub-block{
+    position:relative;margin-top:20px;padding:18px 20px 12px;
+    background:
+      radial-gradient(120% 140% at 0% 0%,rgba(240,163,91,.1),transparent 60%),
+      linear-gradient(135deg,rgba(240,163,91,.05),rgba(255,255,255,.015));
+    border:1px solid rgba(240,163,91,.2);border-left:3px solid #F0A35B;
+    border-radius:4px 14px 14px 4px;
+    box-shadow:0 14px 30px -24px rgba(240,163,91,.5);
+  }
+  #panel-experience .sub-block h4{
+    display:flex;align-items:flex-start;gap:10px;
+    margin:0 0 6px;font-size:.95rem;line-height:1.5;color:#F6C99B;
+  }
+  #panel-experience .sub-block h4::before{
+    content:"";width:18px;height:18px;flex:none;margin-top:2px;background:#F0A35B;
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='6' y='6' width='12' height='12' rx='2'/%3E%3Crect x='10' y='10' width='4' height='4'/%3E%3Cpath d='M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4'/%3E%3C/svg%3E") center/contain no-repeat;
+            mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='6' y='6' width='12' height='12' rx='2'/%3E%3Crect x='10' y='10' width='4' height='4'/%3E%3Cpath d='M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4'/%3E%3C/svg%3E") center/contain no-repeat;
+  }
+  #panel-experience .sub-block ul{margin-top:6px;}
+  #panel-experience .sub-block ul li::before{
+    background:linear-gradient(135deg,#F0A35B,#F6C99B);box-shadow:0 0 8px rgba(240,163,91,.35);
+  }
+
+  @media (max-width:640px){
+    #panel-experience .panel-head h2{font-size:1.6rem;}
+    #panel-experience .timeline{padding-left:26px;}
+    #panel-experience .tl-item{padding:18px 15px 16px;border-radius:15px;margin-bottom:20px;}
+    #panel-experience .tl-item::before{left:-32px;top:22px;width:12px;height:12px;}
+    #panel-experience .tl-item::after{left:-20px;top:27px;width:20px;}
+    #panel-experience .tl-item h3{font-size:1.1rem;}
+    #panel-experience .tl-item ul li{padding:6px 6px 6px 26px;font-size:.9rem;}
+    #panel-experience .tl-item ul li::before{left:8px;}
+    #panel-experience .sub-block{padding:15px 14px 8px;}
+  }
+
+
+  /* ---------- systems page polish (CSS only, text unchanged) ---------- */
+  #panel-systems .panel-head{border-bottom:none;margin-bottom:38px;padding-bottom:20px;}
+  #panel-systems .panel-head::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;width:auto;height:1px;border-radius:0;
+    background:linear-gradient(90deg,var(--cyan),rgba(100,216,213,.15) 35%,var(--line) 70%,transparent);
+  }
+  #panel-systems .panel-head h2{
+    font-size:2rem;font-weight:700;letter-spacing:-.03em;
+    background:linear-gradient(120deg,#fff 30%,var(--cyan));
+    -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+  }
+  #panel-systems .panel-head .num{
+    padding:5px 13px;border-radius:999px;font-size:.72rem;color:var(--cyan);
+    background:rgba(100,216,213,.08);border:1px solid rgba(100,216,213,.22);
+  }
+
+  #panel-systems .sys-grid{gap:18px;}
+  #panel-systems .sys-card{
+    --ac:#64D8D5;
+    min-height:212px;padding:22px 22px 20px;gap:12px;border-radius:18px;
+    border:1px solid rgba(255,255,255,.08);
+    background:
+      linear-gradient(90deg,var(--ac),transparent 65%) 0 0/100% 2px no-repeat,
+      radial-gradient(120% 120% at 100% 0%,color-mix(in srgb,var(--ac) 10%,transparent),transparent 55%),
+      linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+    box-shadow:0 18px 38px -26px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.045);
+    animation:rise .5s cubic-bezier(.2,.75,.2,1) both;
+  }
+  #panel-systems .sys-card:has(.sys-light:not(.dev)){--ac:#7ED36A;}
+  #panel-systems .sys-card:nth-child(2){animation-delay:.04s;}
+  #panel-systems .sys-card:nth-child(3){animation-delay:.08s;}
+  #panel-systems .sys-card:nth-child(4){animation-delay:.12s;}
+  #panel-systems .sys-card:nth-child(5){animation-delay:.16s;}
+  #panel-systems .sys-card:nth-child(6){animation-delay:.2s;}
+  #panel-systems .sys-card:nth-child(7){animation-delay:.24s;}
+  #panel-systems .sys-card:nth-child(8){animation-delay:.28s;}
+
+  /* big faint icon per card */
+  #panel-systems .sys-card::before{
+    content:"";position:absolute;right:16px;bottom:14px;width:74px;height:74px;
+    background:var(--ac);opacity:.14;pointer-events:none;
+    -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+    -webkit-mask-position:center;mask-position:center;
+    -webkit-mask-size:contain;mask-size:contain;
+    transition:opacity .25s ease,transform .3s ease;
+  }
+  #panel-systems .sys-card:nth-child(1)::before{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 16V6h12v10M14 9h4l4 4v3h-8'/%3E%3Ccircle cx='7' cy='17.5' r='2'/%3E%3Ccircle cx='18' cy='17.5' r='2'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 16V6h12v10M14 9h4l4 4v3h-8'/%3E%3Ccircle cx='7' cy='17.5' r='2'/%3E%3Ccircle cx='18' cy='17.5' r='2'/%3E%3C/svg%3E");}
+  #panel-systems .sys-card:nth-child(2)::before{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l8 4.5v9L12 21l-8-4.5v-9z'/%3E%3Cpath d='M12 12l8-4.5M12 12v9M12 12L4 7.5'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l8 4.5v9L12 21l-8-4.5v-9z'/%3E%3Cpath d='M12 12l8-4.5M12 12v9M12 12L4 7.5'/%3E%3C/svg%3E");}
+  #panel-systems .sys-card:nth-child(3)::before{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='4' width='14' height='17' rx='2'/%3E%3Cpath d='M9 4h6v3H9zM9 12h6M9 16h4'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='4' width='14' height='17' rx='2'/%3E%3Cpath d='M9 4h6v3H9zM9 12h6M9 16h4'/%3E%3C/svg%3E");}
+  #panel-systems .sys-card:nth-child(4)::before{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 20V10M10 20V4M16 20v-8M22 20H2'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 20V10M10 20V4M16 20v-8M22 20H2'/%3E%3C/svg%3E");}
+  #panel-systems .sys-card:nth-child(5)::before{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 7h13l-3-3M17 17H4l3 3'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 7h13l-3-3M17 17H4l3 3'/%3E%3C/svg%3E");}
+  #panel-systems .sys-card:nth-child(6)::before{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='7' width='18' height='10' rx='2'/%3E%3Cpath d='M22 11v2M11 9l-2 3h3l-2 3'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='7' width='18' height='10' rx='2'/%3E%3Cpath d='M22 11v2M11 9l-2 3h3l-2 3'/%3E%3C/svg%3E");}
+  #panel-systems .sys-card:nth-child(7)::before{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z'/%3E%3Cpath d='M14 3v5h5M9 13h6M9 17h6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z'/%3E%3Cpath d='M14 3v5h5M9 13h6M9 17h6'/%3E%3C/svg%3E");}
+  #panel-systems .sys-card:nth-child(8)::before{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9V3h12v6'/%3E%3Cpath d='M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2'/%3E%3Cpath d='M6 14h12v7H6z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9V3h12v6'/%3E%3Cpath d='M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2'/%3E%3Cpath d='M6 14h12v7H6z'/%3E%3C/svg%3E");}
+
+  #panel-systems .sys-card::after{background:color-mix(in srgb,var(--ac) 40%,transparent);}
+  #panel-systems .sys-card:hover{
+    transform:translateY(-5px);
+    border-color:color-mix(in srgb,var(--ac) 45%,transparent);
+    background:
+      linear-gradient(90deg,var(--ac),transparent 85%) 0 0/100% 2px no-repeat,
+      radial-gradient(120% 120% at 100% 0%,color-mix(in srgb,var(--ac) 16%,transparent),transparent 58%),
+      linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.015));
+    box-shadow:0 28px 50px -28px #000,0 0 0 1px color-mix(in srgb,var(--ac) 10%,transparent);
+  }
+  #panel-systems .sys-card:hover::before{opacity:.32;transform:scale(1.08) rotate(-4deg);}
+  #panel-systems .sys-card:hover .sys-title{color:var(--ac);}
+
+  #panel-systems .sys-id{
+    padding:4px 10px;border-radius:999px;font-size:.68rem;color:var(--ac);
+    background:color-mix(in srgb,var(--ac) 10%,transparent);
+    border:1px solid color-mix(in srgb,var(--ac) 28%,transparent);
+  }
+  #panel-systems .sys-light{
+    background:var(--ac);
+    box-shadow:0 0 0 4px color-mix(in srgb,var(--ac) 18%,transparent),0 0 10px var(--ac);
+  }
+  #panel-systems .sys-light:not(.dev){animation:sys-pulse 2.4s ease-out infinite;}
+  @keyframes sys-pulse{
+    0%{box-shadow:0 0 0 0 rgba(126,211,106,.55),0 0 10px #7ED36A;}
+    80%,100%{box-shadow:0 0 0 9px rgba(126,211,106,0),0 0 10px #7ED36A;}
+  }
+  #panel-systems .sys-title{
+    font-size:1.2rem;font-weight:600;letter-spacing:-.015em;line-height:1.35;color:#fff;
+    padding-right:56px;margin-top:4px;
+  }
+  #panel-systems .sys-desc{font-size:.88rem;line-height:1.7;color:#AEB7BF;padding-right:36px;}
+  #panel-systems .sys-open{
+    display:inline-flex;align-items:center;gap:8px;align-self:flex-start;
+    margin-top:auto;padding:7px 14px;font-size:.75rem;font-weight:500;color:var(--ac);
+    background:color-mix(in srgb,var(--ac) 8%,transparent);
+    border:1px solid color-mix(in srgb,var(--ac) 25%,transparent);border-radius:999px;
+    transition:background .2s ease,gap .2s ease,color .2s ease;
+  }
+  #panel-systems .sys-open::after{
+    content:"";width:13px;height:13px;background:currentColor;
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;
+            mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;
+  }
+  #panel-systems .sys-card:hover .sys-open{
+    gap:12px;color:#0B1118;background:var(--ac);
+  }
+
+  /* modal */
+  .overlay.open .modal{animation:modal-pop .28s cubic-bezier(.2,.8,.25,1) both;}
+  @keyframes modal-pop{from{opacity:0;transform:translateY(14px) scale(.97);}to{opacity:1;transform:none;}}
+  .modal{
+    border-radius:20px;padding:36px 36px 32px;overflow-x:hidden;
+    border:1px solid rgba(100,216,213,.18);
+    box-shadow:0 40px 100px -25px #000,0 0 0 1px rgba(255,255,255,.03),0 0 60px -30px var(--cyan);
+  }
+  .modal::before{
+    content:"";position:sticky;display:block;top:-36px;height:3px;margin:-36px -36px 30px;
+    background:linear-gradient(90deg,var(--cyan),#3aa6ff 55%,transparent);
+  }
+  .modal-close{border-radius:50%;width:34px;height:34px;background:rgba(255,255,255,.04);}
+  .modal-close:hover{transform:rotate(90deg);}
+  .modal-eyebrow{
+    display:inline-flex;padding:4px 11px;border-radius:999px;color:var(--cyan);
+    background:rgba(100,216,213,.08);border:1px solid rgba(100,216,213,.22);
+  }
+  .modal h3{
+    font-size:1.6rem;font-weight:700;line-height:1.25;margin-bottom:18px;
+    background:linear-gradient(120deg,#fff 40%,var(--cyan));
+    -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+  }
+  .modal .tags{padding-bottom:20px;margin-bottom:20px;border-bottom:1px dashed rgba(255,255,255,.1);}
+  .modal .tag{
+    padding:6px 13px;color:var(--cyan);
+    border-color:rgba(100,216,213,.25);background:rgba(100,216,213,.07);
+  }
+  .modal ul{list-style:none;padding:0;display:grid;gap:2px;}
+  .modal ul li{
+    position:relative;margin:0;padding:8px 12px 8px 30px;border-radius:10px;
+    transition:background .18s ease,color .18s ease;
+  }
+  .modal ul li::before{
+    content:"";position:absolute;left:11px;top:calc(.75em + 8px);width:7px;height:7px;
+    border-radius:2px;transform:rotate(45deg);
+    background:linear-gradient(135deg,var(--cyan),#3aa6ff);box-shadow:0 0 8px var(--cyan-glow);
+  }
+  .modal ul li:hover{background:rgba(255,255,255,.04);color:var(--ink);}
+
+  @media (max-width:640px){
+    #panel-systems .panel-head h2{font-size:1.6rem;}
+    #panel-systems .sys-grid{gap:14px;}
+    #panel-systems .sys-card{min-height:190px;padding:19px 18px 18px;}
+    #panel-systems .sys-title{font-size:1.1rem;}
+    .modal{padding:30px 20px 26px;}
+    .modal::before{top:-30px;margin:-30px -20px 24px;}
+    .modal h3{font-size:1.35rem;}
+  }
+
+
+  /* ---------- contact page polish (CSS only, text unchanged) ---------- */
+  #panel-contact .panel-head{border-bottom:none;margin-bottom:38px;padding-bottom:20px;}
+  #panel-contact .panel-head::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;width:auto;height:1px;border-radius:0;
+    background:linear-gradient(90deg,var(--cyan),rgba(100,216,213,.15) 35%,var(--line) 70%,transparent);
+  }
+  #panel-contact .panel-head h2{
+    font-size:2rem;font-weight:700;letter-spacing:-.03em;
+    background:linear-gradient(120deg,#fff 30%,var(--cyan));
+    -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+  }
+  #panel-contact .panel-head .num{
+    position:relative;padding:5px 13px 5px 28px;border-radius:999px;font-size:.72rem;color:var(--cyan);
+    background:rgba(100,216,213,.08);border:1px solid rgba(100,216,213,.22);
+  }
+  #panel-contact .panel-head .num::before{
+    content:"";position:absolute;left:11px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;
+    background:var(--ok);box-shadow:0 0 8px var(--ok);
+  }
+
+  #panel-contact .contact-grid{max-width:none;gap:18px;}
+  #panel-contact .contact-cell{
+    --ac:#64D8D5;
+    position:relative;overflow:hidden;
+    padding:24px 26px 24px 94px;min-height:104px;border-radius:18px;
+    display:flex;flex-direction:column;justify-content:center;
+    border:1px solid rgba(255,255,255,.08);
+    background:
+      linear-gradient(90deg,var(--ac),transparent 65%) 0 0/100% 2px no-repeat,
+      radial-gradient(120% 140% at 100% 0%,color-mix(in srgb,var(--ac) 10%,transparent),transparent 58%),
+      linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+    box-shadow:0 18px 38px -26px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.045);
+    animation:rise .5s cubic-bezier(.2,.75,.2,1) both;
+    transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+  }
+  #panel-contact .contact-cell:nth-child(1){--ac:#7ED36A;}
+  #panel-contact .contact-cell:nth-child(2){--ac:#64D8D5;animation-delay:.07s;}
+  #panel-contact .contact-cell:nth-child(3){--ac:#F0A35B;animation-delay:.14s;}
+  #panel-contact .contact-cell:hover{
+    transform:translateY(-4px);
+    border-color:color-mix(in srgb,var(--ac) 45%,transparent);
+    box-shadow:0 28px 50px -28px #000,0 0 0 1px color-mix(in srgb,var(--ac) 10%,transparent);
+  }
+
+  /* icon tile */
+  #panel-contact .contact-cell::before{
+    content:"";position:absolute;left:26px;top:50%;width:48px;height:48px;margin-top:-24px;border-radius:14px;
+    border:1px solid color-mix(in srgb,var(--ac) 35%,transparent);
+    background-color:color-mix(in srgb,var(--ac) 12%,transparent);
+    background-repeat:no-repeat;background-position:center;background-size:22px;
+    box-shadow:0 0 22px -6px var(--ac);
+    transition:transform .25s ease,background-color .25s ease;
+  }
+  #panel-contact .contact-cell:nth-child(1)::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237ED36A' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z'/%3E%3C/svg%3E");}
+  #panel-contact .contact-cell:nth-child(2)::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364D8D5' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='4' width='20' height='16' rx='3'/%3E%3Cpath d='M22 7l-10 6L2 7'/%3E%3C/svg%3E");}
+  #panel-contact .contact-cell:nth-child(3)::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F0A35B' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3C/svg%3E");}
+  #panel-contact .contact-cell:hover::before{transform:scale(1.08) rotate(-4deg);background-color:color-mix(in srgb,var(--ac) 22%,transparent);}
+
+  /* corner arrow on clickable cells */
+  #panel-contact .contact-cell:nth-child(-n+2)::after{
+    content:"";position:absolute;right:20px;top:20px;width:30px;height:30px;border-radius:50%;
+    border:1px solid color-mix(in srgb,var(--ac) 28%,transparent);
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364D8D5' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17L17 7M8 7h9v9'/%3E%3C/svg%3E") center/14px no-repeat;
+    opacity:.6;transition:opacity .2s ease,transform .25s ease,background-color .2s ease;
+  }
+  #panel-contact .contact-cell:nth-child(1)::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237ED36A' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17L17 7M8 7h9v9'/%3E%3C/svg%3E");}
+  #panel-contact .contact-cell:nth-child(-n+2):hover::after{
+    opacity:1;transform:translate(3px,-3px);background-color:color-mix(in srgb,var(--ac) 14%,transparent);
+  }
+  /* whole card is the click target */
+  #panel-contact .contact-cell a::after{content:"";position:absolute;inset:0;z-index:2;}
+
+  #panel-contact .contact-cell .k{
+    display:inline-flex;align-self:flex-start;margin-bottom:9px;padding:3px 10px;border-radius:999px;
+    font-size:.66rem;font-weight:600;color:var(--ac);letter-spacing:.14em;
+    background:color-mix(in srgb,var(--ac) 10%,transparent);
+    border:1px solid color-mix(in srgb,var(--ac) 25%,transparent);
+  }
+  #panel-contact .contact-cell .v{font-size:1.04rem;line-height:1.65;color:#fff;word-break:break-word;padding-right:34px;}
+  #panel-contact .contact-cell .v.mono{font-size:1.4rem;letter-spacing:.04em;}
+  #panel-contact .contact-cell a:hover{color:var(--ac);}
+  #panel-contact .contact-cell:nth-child(3) .v{color:#D5DBE0;font-size:1rem;}
+
+  @media (max-width:640px){
+    #panel-contact .panel-head h2{font-size:1.6rem;}
+    #panel-contact .contact-grid{gap:14px;}
+    #panel-contact .contact-cell{padding:20px 18px 20px 78px;min-height:92px;}
+    #panel-contact .contact-cell::before{left:18px;width:44px;height:44px;margin-top:-22px;}
+    #panel-contact .contact-cell .v.mono{font-size:1.2rem;}
+    #panel-contact .contact-cell .v{font-size:.95rem;}
+  }
+
 </style>
 </head>
 <body>
@@ -593,7 +1126,7 @@
 <button class="lang-btn" data-lang="th" type="button">TH</button>
 </div>
 <div class="rail-foot">
-<a class="mono" href="tel:0910244027">091-024-4027</a>
+<a class="mono" href="tel:0837872093">083-787-2093</a>
 <a href="mailto:ksiriyathr@gmail.com">ksiriyathr@gmail.com</a>
 </div>
 </aside>
@@ -605,15 +1138,15 @@
 <svg class="hero-wave" preserveaspectratio="none" viewbox="0 0 520 64">
 <path d="M0,32 L60,32 L75,12 L95,52 L115,32 L180,32 L195,20 L215,44 L235,32 L520,32"></path>
 </svg>
-<h1 class="hero-title" data-en="Computer Engineering" data-th="วิศวกรคอมพิวเตอร์">Computer Engineering</h1>
+<h1 class="hero-title" data-en="IT Support &amp; Systems Engineer" data-th="IT Support &amp; Systems Engineer">IT Support &amp; Systems Engineer</h1>
 </div>
 <p class="hero-sub" data-en="Computer Engineering graduate with experience in IT support, web development, databases, automation, and factory IT systems. I build and maintain internal systems that help make daily work easier and reduce manual tasks" data-th="มีประสบการณ์ด้าน IT Support, การพัฒนาเว็บแอปพลิเคชัน การจัดการฐานข้อมูล และการทำงานอัตโนมัติภายในองค์กร รวมถึงการดูแลและปรับปรุงระบบไอทีในโรงงาน เพื่อช่วยลดขั้นตอนการทำงานด้วยมือและเพิ่มประสิทธิภาพในการทำงานประจำวัน">Computer Engineering graduate with experience in IT support, web development, databases, automation, and factory IT systems. I build and maintain internal systems that help make daily work easier and reduce manual tasks</p>
 <p class="bio" data-en="I have experience with PHP, Python, JavaScript, MySQL/MariaDB, Google Apps Script, Windows Server, Apache, and Excel automation. I also support users with computers, printers, networks, and factory systems" data-th="มีทักษะด้าน PHP, Python, JavaScript, MySQL, Google Apps Script, Windows Server, Apache และ Excel Automation พร้อมประสบการณ์ในการแก้ไขปัญหาคอมพิวเตอร์ เครื่องพิมพ์ และระบบเครือข่าย รวมถึงการปรับปรุงแผนที่การนำทางและดูแลระบบ AMR Robot เพื่อสนับสนุนการทำงานของระบบขนส่งอัตโนมัติภายในโรงงาน">I have experience with PHP, Python, JavaScript, MySQL/MariaDB, Google Apps Script, Windows Server, Apache, and Excel automation. I also support users with computers, printers, networks, and factory systems</p>
 <div class="block-title" data-en="Work Experience" data-th="ประสบการณ์ทำงาน">Work Experience</div>
-<div class="edu-item">
+<div class="edu-item work-card">
 <h3 data-en="IWCT Co., Ltd." data-th="IWCT Co., Ltd.">IWCT Co., Ltd.</h3>
 <div class="meta" data-en="IT Support &amp; Systems | 2026 – Present" data-th="เจ้าหน้าที่สนับสนุนด้านไอทีและระบบ (IT Support &amp; Systems) | 2026 – ปัจจุบัน">IT Support &amp; Systems | 2026 – Present</div>
-<ul style="margin:12px 0 0;padding-left:18px;line-height:1.75;font-size:.9rem;color:#C9D0D6;">
+<ul class="check-list">
 <li data-en="Provide IT support and troubleshoot computers, printers, software and networks" data-th="ให้การสนับสนุนด้านไอทีและแก้ไขปัญหาคอมพิวเตอร์ เครื่องพิมพ์ ซอฟต์แวร์ และระบบเครือข่าย">Provide IT support and troubleshoot computers, printers, software and networks</li>
 
 <li data-en="Develop and maintain internal web applications and databases" data-th="พัฒนาและดูแลเว็บแอปพลิเคชันและระบบฐานข้อมูลภายในองค์กร">Develop and maintain internal web applications and databases</li>
@@ -626,28 +1159,25 @@
 </ul>
 </div>
 <div class="block-title" data-en="Education" data-th="การศึกษา">Education</div>
-<div class="edu-item">
+<div class="edu-item edu-card">
 <h3 data-en="Rajamangala University of Technology Rattanakosin" data-th="มหาวิทยาลัยเทคโนโลยีราชมงคลรัตนโกสินทร์">Rajamangala University of Technology Rattanakosin</h3>
 <div class="meta" data-en="B.Sc., Computer Engineering — Faculty of Industry and Technology | 2021–2025" data-th="ปริญญาวิศวกรรมศาสตรบัณฑิต (วท.บ.) สาขาวิศวกรรมคอมพิวเตอร์ คณะอุตสาหกรรมและเทคโนโลยี | พ.ศ. 2564–2568">B.Sc., Computer Engineering — Faculty of Industry and Technology | 2021–2025</div>
 </div>
 <div class="block-title" data-en="Expertise" data-th="ความเชี่ยวชาญ">Expertise</div>
-<div class="tags">
-<span class="tag" data-en="PHP" data-th="PHP">PHP</span>
-<span class="tag" data-en="Python / Flask" data-th="Python / Flask">Python / Flask</span>
-<span class="tag" data-en="JavaScript" data-th="JavaScript">JavaScript</span>
-<span class="tag" data-en="HTML / CSS" data-th="HTML / CSS">HTML / CSS</span>
-<span class="tag" data-en="MySQL / MariaDB" data-th="MySQL / MariaDB">MySQL / MariaDB</span>
-<span class="tag" data-en="Google Apps Script" data-th="Google Apps Script">Google Apps Script</span>
-<span class="tag" data-en="Google Sheets / Drive" data-th="Google Sheets / Drive">Google Sheets / Drive</span>
-<span class="tag" data-en="Windows Server / VM" data-th="Windows Server / VM">Windows Server / VM</span>
-<span class="tag" data-en="Apache" data-th="Apache">Apache</span>
-<span class="tag" data-en="PHPMailer / SMTP" data-th="PHPMailer / SMTP">PHPMailer / SMTP</span>
-<span class="tag" data-en="Excel / VBA / Macro" data-th="Excel / VBA / Macro">Excel / VBA / Macro</span>
-<span class="tag" data-en="Dashboard &amp; Data Visualization" data-th="Dashboard &amp; Data Visualization">Dashboard &amp; Data Visualization</span>
-<span class="tag" data-en="AMR &amp; Factory IT" data-th="AMR &amp; Factory IT">AMR &amp; Factory IT</span>
-<span class="tag" data-en="IT Support &amp; Troubleshooting" data-th="IT Support &amp; Troubleshooting">IT Support &amp; Troubleshooting</span>
-<span class="tag" data-en="AI-assisted Development" data-th="AI-assisted Development">AI-assisted Development</span>
-<span class="tag" data-en="Arduino &amp; Hardware Integration" data-th="Arduino &amp; Hardware Integration">Arduino &amp; Hardware Integration</span>
+<div class="tags tags-expertise">
+<span class="tag t-web" data-en="PHP" data-th="PHP">PHP</span>
+<span class="tag t-web" data-en="Python / Flask" data-th="Python / Flask">Python / Flask</span>
+<span class="tag t-web" data-en="JavaScript" data-th="JavaScript">JavaScript</span>
+<span class="tag t-web" data-en="HTML / CSS" data-th="HTML / CSS">HTML / CSS</span>
+<span class="tag t-data" data-en="MySQL / MariaDB" data-th="MySQL / MariaDB">MySQL / MariaDB</span>
+<span class="tag t-data" data-en="Google Apps Script" data-th="Google Apps Script">Google Apps Script</span>
+<span class="tag t-data" data-en="Google Sheets / Drive" data-th="Google Sheets / Drive">Google Sheets / Drive</span>
+<span class="tag t-infra" data-en="Windows Server / VM" data-th="Windows Server / VM">Windows Server / VM</span>
+<span class="tag t-web" data-en="PHPMailer / SMTP" data-th="PHPMailer / SMTP">PHPMailer / SMTP</span>
+<span class="tag t-infra" data-en="AMR &amp; Factory IT" data-th="AMR &amp; Factory IT">AMR &amp; Factory IT</span>
+<span class="tag t-infra" data-en="IT Support &amp; Troubleshooting" data-th="IT Support &amp; Troubleshooting">IT Support &amp; Troubleshooting</span>
+<span class="tag t-lab" data-en="AI-assisted Development" data-th="AI-assisted Development">AI-assisted Development</span>
+<span class="tag t-lab" data-en="Arduino &amp; Hardware Integration" data-th="Arduino &amp; Hardware Integration">Arduino &amp; Hardware Integration</span>
 </div>
 </section>
 <!-- EXPERIENCE -->
@@ -768,7 +1298,7 @@
 <div class="contact-grid">
 <div class="contact-cell">
 <div class="k" data-en="Phone" data-th="โทรศัพท์">Phone</div>
-<div class="v mono" data-en='&lt;a href="tel:0910244027"&gt;091-024-4027&lt;/a&gt;' data-th='&lt;a href="tel:0910244027"&gt;091-024-4027&lt;/a&gt;'><a href="tel:0910244027">091-024-4027</a></div>
+<div class="v mono" data-en='&lt;a href="tel:0837872093"&gt;083-787-2093&lt;/a&gt;' data-th='&lt;a href="tel:0837872093"&gt;083-787-2093&lt;/a&gt;'><a href="tel:0837872093">083-787-2093</a></div>
 </div>
 <div class="contact-cell">
 <div class="k" data-en="Email" data-th="อีเมล">Email</div>
